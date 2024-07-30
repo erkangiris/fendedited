@@ -1,0 +1,108 @@
+body {
+  background: #f5f5f7;
+  font-family: 'SF Pro';
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/assets/fonts/SF-Pro-Display-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/assets/fonts/SF-Pro-Display-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/assets/fonts/SF-Pro-Display-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/assets/fonts/SF-Pro-Display-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/assets/fonts/SF-Pro-Display-Heavy.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+.animation-container {
+  height: 400px; /* Adjust this height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 300ms,
+    transform 300ms;
+}
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 300ms,
+    transform 300ms;
+}
+.half-circle {
+  position: relative;
+}
+.half-circle::after {
+  width: 50%;
+  height: 100%;
+  background-color: transpert;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border: 2px solid #0381ff;
+  border-right: 0;
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+}
+@keyframes borderAnimation {
+  0% {
+    stroke-dasharray: 0, 157.08;
+  }
+  100% {
+    stroke-dasharray: 157.08, 157.08;
+  }
+}
+
+.circle-border {
+  fill: none;
+  stroke: #0381ff;
+  stroke-width: 3;
+  stroke-dasharray: 0, 157.08;
+}
+
+.circle-border.animate {
+  animation: borderAnimation 0.5s forwards;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
